@@ -7,15 +7,13 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: hotel_management    # သင့် SQL database name ပြောင်းလဲနိုင်သည်
+      MYSQL_DATABASE: bluebirdhotel   
       MYSQL_USER: hotel_user
       MYSQL_PASSWORD: hotel_password
     ports:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
-      # အကယ်၍ သင့်တွင် .sql file ရှိပါက docker စတက်ချိန် database automatic ဆောက်ပေးရန်
-      # - ./database/hotel.sql:/docker-entrypoint-initdb.d/dump.sql
 
   web:
     build: .
